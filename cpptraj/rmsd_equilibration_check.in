@@ -1,0 +1,14 @@
+# RMSD analysis for molecular dynamics trajectories using cpptraj
+# Purpose: evaluate structural stability and identify equilibrated regions
+
+# Load production trajectories
+# Additional production segments can be added if necessary
+trajin prod_1.mdcrd
+trajin prod_2.mdcrd
+trajin prod_3.mdcrd
+
+# Calculate RMSD relative to the first frame
+# Adapt the residue ranges according to the system:
+# - RECEPTOR_RESIDUES: main protein/receptor
+# - LIGAND_RESIDUES: peptide, ligand, or interacting partner
+rmsd :RECEPTOR_RESIDUES,LIGAND_RESIDUES@C,CA,N first out rmsd.dat
